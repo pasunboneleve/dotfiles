@@ -1,0 +1,5 @@
+
+light-locker &
+compton &
+taffybar &
+nm-applet --sm-disable --indicator &
