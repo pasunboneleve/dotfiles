@@ -1,4 +1,4 @@
-
+systemctl --user import-environment
 light-locker &
 compton &
 taffybar &
