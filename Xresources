@@ -115,7 +115,7 @@ Emacs*toolBar: 0
 !URxvt.transparent:        true
 URxvt.shading:            15
 ! URxvt.font:               xft:Inconsolata for Powerline:pixelsize=16
-URxvt.font:               xft:Inconsolata Nerd Font:pixelsize=16
+URxvt.font:               xft:Inconsolata Nerd Font Mono:pixelsize=16
 URxvt.url-select.launcher:        opera
 URxvt.matcher.button:     1
 URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
