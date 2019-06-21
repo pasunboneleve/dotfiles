@@ -28,6 +28,8 @@ XTerm*toolBar:            false
 ! Emacs ----------------------------------------------------------------------
 
 Emacs*toolBar: 0
+Emacs*verticalScrollBars: false
+Emacs*font:               Inconsolata Nerd Font Mono:size=20
 
 ! Solarized color scheme for the X Window System -----------------------------
 !
