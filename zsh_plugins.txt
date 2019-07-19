@@ -3,6 +3,9 @@ zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-completions
 zsh-users/zsh-history-substring-search
 
+spwhitt/nix-zsh-completions
+chisui/zsh-nix-shell
+
 # load the theme
 romkatv/powerlevel10k
 
