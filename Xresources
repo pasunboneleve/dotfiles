@@ -1,7 +1,7 @@
 
 ! Xft settings ---------------------------------------------------------------
 
-Xft.dpi:        90 !96
+Xft.dpi:        120 !96
 Xft.antialias:  true
 Xft.rgba:       none
 Xft.hinting:    true
@@ -12,7 +12,7 @@ Xft.hintstyle:  hintslight
 
 XTerm*VT100.geometry:     80x25
 XTerm*renderFont:         true
-XTerm*faceName:           Inconsolata:style=Regular:size=13
+XTerm*faceName:           Inconsolata:style=Regular:size=11
 XTerm*dynamicColors:      true
 XTerm*utf8:               2
 XTerm*eightBitInput:      true
@@ -117,7 +117,7 @@ Emacs*font:               Inconsolata Nerd Font Mono:size=20
 !URxvt.transparent:        true
 URxvt.shading:            15
 ! URxvt.font:               xft:Inconsolata for Powerline:pixelsize=16
-URxvt.font:               xft:Inconsolata Nerd Font Mono:pixelsize=16
+URxvt.font:               xft:Inconsolata Nerd Font Mono:pixelsize=20
 URxvt.url-select.launcher:        chromium
 URxvt.matcher.button:     1
 URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
