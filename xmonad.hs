@@ -21,7 +21,7 @@ main = do
     , terminal = "urxvt"
     , normalBorderColor = "#cccccc"
     , focusedBorderColor = "#cd8b00"
-    , modMask = mod4Mask -- depends on ~/.Xmodmap assigning Alt_R to mod3
+    -- , modMask = mod4Mask -- depends on ~/.Xmodmap assigning Alt_R to mod3
     } `additionalKeys` keyBindings
     `additionalKeysP` mediaKeys
 
