@@ -42,8 +42,8 @@ mediaKeys =
   -- , ("<XF86AudioPrev>", spawn "playerctl previous")
   -- , ("<XF86AudioNext>", spawn "playerctl next")
 
-  -- , ("<XF86MonBrightnessDown>", spawn "light -U 5")
-  -- , ("<XF86MonBrightnessUp>", spawn "light -A 5")
+  , ("<XF86MonBrightnessDown>", spawn "light -U 5")
+  , ("<XF86MonBrightnessUp>", spawn "light -A 5")
 
   ]
 
