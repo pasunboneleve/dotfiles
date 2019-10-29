@@ -1,4 +1,5 @@
 systemctl --user import-environment
+setroot ~/.config/dotfiles/nix-wallpaper-simple-dark-gray.png
 light-locker &
 taffybar &
 nm-applet --sm-disable --indicator &
