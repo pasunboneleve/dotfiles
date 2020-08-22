@@ -1,0 +1,9 @@
+# ~/.direnvrc
+# also add ~/.nix-direnv/direnvrc from
+# https://github.com/nix-community/nix-direnv/blob/master/direnvrc
+
+source $HOME/.nix-direnv/direnvrc
+
+if [ -f /run/current-system/sw/share/nix-direnv/direnvrc ]; then
+  source /run/current-system/sw/share/nix-direnv/direnvrc
+fi
