@@ -1,5 +1,5 @@
 systemctl --user import-environment
-xmodmap -e "remove mod1 = Alt_L"
+xmodmap ~/.config/dotfiles/xmodmap
 setroot ~/.config/dotfiles/nix-wallpaper-simple-dark-gray.png
 light-locker &
 # taffybar &
