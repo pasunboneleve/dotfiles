@@ -3,6 +3,7 @@
 import           System.IO
 import           System.Process
 import           XMonad
+import           XMonad.Config.Xfce
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.EwmhDesktops  (ewmh)
 import           XMonad.Hooks.ManageDocks
@@ -11,12 +12,12 @@ import           XMonad.Util.EZConfig       (additionalKeys, additionalKeysP)
 import           XMonad.Util.Run            (spawnPipe)
 
 main = do
-  xmonad . docks . ewmh $ def
+  xmonad . docks . ewmh $ xfceConfig
     { manageHook = manageDocks
                    <+> myManageHook
                    <+> manageHook def
     , layoutHook = avoidStruts $ layoutHook def
-    , terminal = "urxvt"
+    , terminal = myTerminal
     , normalBorderColor = "#cccccc"
     , focusedBorderColor = "#cd8b00"
     -- , modMask = mod4Mask -- depends on ~/.Xmodmap assigning Alt_R to mod3
@@ -26,7 +27,8 @@ main = do
 keyBindings =
   [
     -- lock screen
-    ((mod4Mask .|. shiftMask, xK_z), spawn "dm-tool lock")
+    ((mod1Mask .|. shiftMask, xK_z), spawn "dm-tool lock")
+
   ]
 
 mediaKeys =
@@ -50,3 +52,5 @@ myManageHook = composeAll
     className =? "Xmessage" --> doCenterFloat
   , className =? "Nm-connection-editor" --> doCenterFloat
   ]
+
+myTerminal = "alacritty"
