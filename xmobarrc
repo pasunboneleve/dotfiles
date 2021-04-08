@@ -22,4 +22,5 @@ Config
         100
     , Run Date "%A, %d %B %H:%M" "date" 100
     ]
+  , position = TopW L 90
 }
