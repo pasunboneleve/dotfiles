@@ -1,9 +1,6 @@
 systemctl --user import-environment
-xmodmap ~/.config/dotfiles/xmodmap
-setroot ~/.config/dotfiles/nix-wallpaper-simple-dark-gray.png
-numlockx on
-light-locker &
-# taffybar &
-xmobar &
+# xmodmap ~/.config/dotfiles/xmodmap
+setroot ~/.config/nixos/nix-wallpaper-simple-dark-gray.png
 nm-applet --sm-disable --indicator &
 xbanish &
+stalonetray -c ~/.config/dotfiles/stalonetrayrc &
