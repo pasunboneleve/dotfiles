@@ -2,8 +2,8 @@ Config
   { border      = FullB
   , borderColor = "#202020"
   , font        = "xft:iosevka:size=11:bold:antialias=true"
-  , template    = " %wlp2s0% } {%cpu% | %memory% | %swap% |  %battery% %date%  "
-  , textOffset  = 14
+  , template    = "} { %cpu% | %memory% | %swap% | %wlp2s0% |   %date%  %battery% "
+  , textOffset  = 20
   , commands =
     [
       Run Network "wlp2s0" ["-L","0","-H","32",
@@ -22,5 +22,5 @@ Config
         100
     , Run Date "%A, %d %B %H:%M" "date" 100
     ]
-  , position = TopW L 90
+  , position = TopW L 100
 }
