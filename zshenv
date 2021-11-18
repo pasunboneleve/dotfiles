@@ -9,3 +9,5 @@ eval "$(pyenv virtualenv-init -)"
 DIRENV_ALLOW_NIX=1
 
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+if [ -f $HOME/.secret_env ]; then source ~/.secret_env; fi
