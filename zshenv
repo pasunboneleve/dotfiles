@@ -1,1 +1,1 @@
-export PATH=${PATH}:${HOME}/.local/bin
+export PATH=${HOME}/.pyenv/bin:${PATH}:${HOME}/.local/bin
