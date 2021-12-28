@@ -33,6 +33,9 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 ### End of Zinit's installer chunk
+
+### starship
+export STARSHIP_CONFIG=~/.config/dotfiles/starship.toml
 zinit ice as"command" from"gh-r" \
       atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
       atpull"%atclone" src"init.zsh"
