@@ -15,6 +15,7 @@ $hg_branch\
 $docker_context\
 $package\
 $cmake\
+${custom.haskell}\
 $helm\
 $julia\
 $lua\
@@ -30,7 +31,6 @@ $conda\
 $memory_usage\
 $aws\
 $env_var\
-$custom\
 $sudo\
 $fill\
 $battery\
@@ -56,3 +56,12 @@ utc_time_offset = "+11"
 
 [cmd_duration]
 disabled = false
+
+[custom.haskell]
+disabled = false
+description = "Haskell compiler version"
+command = "stack ghc -- --version | grep -Eo '[0-9.]+'"
+files = ["package.yaml", "stack.yaml"]
+symbol = "GHC "
+style = "yellow"
+format = "via [$symbol($output)]($style)"
