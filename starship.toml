@@ -15,7 +15,8 @@ $hg_branch\
 $docker_context\
 $package\
 $cmake\
-${custom.haskell}\
+${custom.haskell_version}\
+${custom.haskell_compiler}\
 $helm\
 $julia\
 $lua\
@@ -57,11 +58,20 @@ utc_time_offset = "+11"
 [cmd_duration]
 disabled = false
 
-[custom.haskell]
+[custom.haskell_version]
+disabled = false
+description = "Haskell project version"
+command = "yq -r .version package.yaml"
+files = ["package.yaml"]
+symbol = "📦 "
+style = "gray"
+format = "is [$symbol($output)]($style) "
+
+[custom.haskell_compiler]
 disabled = false
 description = "Haskell compiler version"
 command = "stack ghc -- --version | grep -Eo '[0-9.]+'"
 files = ["package.yaml", "stack.yaml"]
-symbol = "\ue61f "
+symbol = "λ= "
 style = "yellow"
 format = "via [$symbol($output)]($style)"
