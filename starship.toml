@@ -62,6 +62,6 @@ disabled = false
 description = "Haskell compiler version"
 command = "stack ghc -- --version | grep -Eo '[0-9.]+'"
 files = ["package.yaml", "stack.yaml"]
-symbol = "GHC "
+symbol = "\ue61f "
 style = "yellow"
 format = "via [$symbol($output)]($style)"
