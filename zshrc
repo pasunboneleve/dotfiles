@@ -8,6 +8,7 @@ fi
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
+TERM=xterm-256color
 
 source <(antibody init)
 antibody bundle < ~/.zsh_plugins.txt
