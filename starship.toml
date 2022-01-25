@@ -1,0 +1,77 @@
+format = """
+$username\
+$hostname\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+${custom.haskell_version}\
+${custom.haskell_compiler}\
+$helm\
+$julia\
+$lua\
+$nodejs\
+$purescript\
+$python\
+$rlang\
+$rust\
+$terraform\
+$vagrant\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$env_var\
+$sudo\
+$fill\
+$battery\
+$status\
+$shell\
+$time\
+$jobs\
+$cmd_duration\
+$line_break\
+$character\
+"""
+add_newline = false
+
+[fill]
+disabled = false
+symbol = "."
+style = "bold black"
+
+[time]
+disabled = false
+time_format = "%T"
+utc_time_offset = "+11"
+
+[cmd_duration]
+disabled = false
+
+[custom.haskell_version]
+disabled = false
+description = "Haskell project version"
+command = "yq -r .version package.yaml"
+files = ["package.yaml"]
+symbol = "📦 "
+style = "gray"
+format = "is [$symbol($output)]($style) "
+
+[custom.haskell_compiler]
+disabled = false
+description = "Haskell compiler version"
+command = "stack ghc -- --version | grep -Eo '[0-9.]+'"
+files = ["package.yaml", "stack.yaml"]
+symbol = "λ= "
+style = "yellow"
+format = "via [$symbol($output)]($style)"
