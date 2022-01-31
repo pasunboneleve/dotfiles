@@ -1,9 +1,0 @@
-systemctl --user import-environment
-setroot ~/.config/nixos/nix-wallpaper-simple-dark-gray.png
-xmobar &
-stalonetray -c ~/.config/dotfiles/stalonetrayrc &
-blueman-applet &
-nm-applet --sm-disable --indicator &
-xbanish &
-parcellite &
-udiskie --tray &
