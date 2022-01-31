@@ -16,17 +16,10 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # eval "$(direnv hook zsh)"
-eval "$(ssh-agent -s)"
+# eval "$(ssh-agent -s)"
 
 DIRENV_ALLOW_NIX=1
 
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 if [ -f $HOME/.secret_env ]; then source ~/.secret_env; fi
-
-# pipx
-autoload -Uz compinit
-compinit
-autoload -Uz bashcompinit
-bashcompinit
-eval "$(register-python-argcomplete pipx)"

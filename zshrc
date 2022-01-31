@@ -48,6 +48,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# pipx
+autoload -Uz compinit
+compinit
+autoload -Uz bashcompinit
+bashcompinit
+eval "$(register-python-argcomplete pipx)"
+
 # autocompletion
 # zinit light marlonrichert/zsh-autocomplete
 zinit snippet /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
