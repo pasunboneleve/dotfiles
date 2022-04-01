@@ -51,4 +51,4 @@ command = "stack ghc -- --version | grep -Eo '[0-9.]+'"
 files = ["package.yaml", "stack.yaml"]
 symbol = "λ= "
 style = "yellow"
-format = "via [$symbol($output)]($style)"
+format = "via [$symbol($output)]($style) "
