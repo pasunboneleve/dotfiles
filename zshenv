@@ -1,5 +1,6 @@
 export PATH=${PATH}:${HOME}/.local/bin
 
+export EDITOR="emacsclient -t"
 export VISUAL="emacsclient -c"
 
 # set window title
