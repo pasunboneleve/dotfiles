@@ -32,9 +32,14 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust \
     zsh-users/zsh-completions \
+    zsh-users/zsh-syntax-highlighting \
     zsh-users/zsh-history-substring-search
 
 ### End of Zinit's installer chunk
+
+### bind keys for history-substring-search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 ### starship
 export STARSHIP_CONFIG=~/.config/dotfiles/starship.toml
