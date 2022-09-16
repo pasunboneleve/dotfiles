@@ -69,3 +69,6 @@ zinit snippet /usr/libexec/z.sh
 ## highlight syntax (must be last thing in zshrc)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+## direnv
+eval "$(direnv hook zsh)"
