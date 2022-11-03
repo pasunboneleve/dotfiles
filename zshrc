@@ -33,7 +33,8 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust \
     zsh-users/zsh-completions \
     zsh-users/zsh-syntax-highlighting \
-    zsh-users/zsh-history-substring-search
+    zsh-users/zsh-history-substring-search \
+    agkozak/zsh-z
 
 ### End of Zinit's installer chunk
 
@@ -62,9 +63,6 @@ eval "$(register-python-argcomplete pipx)"
 # autocompletion
 # zinit light marlonrichert/zsh-autocomplete
 zinit snippet /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-## z
-zinit snippet /usr/libexec/z.sh
 
 ## highlight syntax (must be last thing in zshrc)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
