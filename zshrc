@@ -42,6 +42,10 @@ zinit light-mode for \
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+### bind Ctr-arrow keys for emacs-like word skip
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
 ### starship
 export STARSHIP_CONFIG=~/.config/dotfiles/starship.toml
 zinit ice as"command" from"gh-r" \
