@@ -46,6 +46,10 @@ bindkey '^[[B' history-substring-search-down
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+### bind Ctrl-delete keys for emacs-like kill word
+bindkey -M emacs '^[[3;5~' kill-word
+bindkey '^H' backward-kill-word
+
 ### starship
 export STARSHIP_CONFIG=~/.config/dotfiles/starship.toml
 zinit ice as"command" from"gh-r" \
