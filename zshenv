@@ -35,3 +35,5 @@ if [ -f $HOME/.secret_env ]; then source ~/.secret_env; fi
 # >>> coursier install directory >>>
 export PATH="$PATH:$HOME/.local/share/coursier/bin"
 # <<< coursier install directory <<<
+
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
