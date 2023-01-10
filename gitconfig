@@ -3,3 +3,5 @@
 	name = Daniel Vianna
 [merge]
     conflictstyle = diff3
+[pull]
+	rebase = false
