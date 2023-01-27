@@ -3,6 +3,9 @@ export PATH=${PATH}:${HOME}/.local/bin
 export EDITOR="emacsclient -t"
 export VISUAL="emacsclient -c"
 
+# necessary to use tramp-mode
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+
 # set window title
 precmd() { echo -en "\e]0;`basename ${PWD}`\a" }
 
