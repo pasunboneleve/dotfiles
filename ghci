@@ -1,0 +1,4 @@
+-- Some people like -Werror, but that means that then I cannot
+-- use LSP or build anything while I'm developing. This fixes it
+-- by transforming warnings back to warnings.
+:set -Wwarn
