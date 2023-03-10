@@ -81,3 +81,28 @@ eval "$(direnv hook zsh)"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '$HOME/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '$HOME/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# open markdown files as html in chrome
+render-markdown () {
+  id=$(uuidgen | cut -c -8)
+  today=$(date)
+  filename=$1:t:r
+  filepath=/tmp/md-$id.html
+  html_body=$(
+    pandoc \
+    --standalone \
+    --metadata date-meta=$today \
+    --metadata date=$today \
+    --metadata title=$filename \
+    --template \
+    ~/.config/dotfiles/template.html $1
+  )
+  (echo $html_body) > $filepath
+  google-chrome $filepath
+}
