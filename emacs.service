@@ -4,7 +4,7 @@ Documentation=info:emacs man:emacs(1) https://gnu.org/software/emacs/
 
 [Service]
 Type=notify
-EnvironmentFile=-/etc/sysconfig/emacs
+Environment="LSP_USE_PLISTS=true"
 ExecStart=/usr/bin/emacs --fg-daemon
 
 # Emacs will exit with status 15 after having received SIGTERM, which
