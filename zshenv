@@ -43,3 +43,6 @@ export PATH="$PATH:$HOME/.local/share/coursier/bin"
 
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+
+# make sure emacs is fast with LSP
+export LSP_USE_PLISTS=true
