@@ -1,7 +1,8 @@
 [Unit]
 Description=Emacs text editor
 Documentation=info:emacs man:emacs(1) https://gnu.org/software/emacs/
-After=graphical.target
+Requires=org.gnome.Shell@wayland.service
+After=org.gnome.Shell@wayland.service
 
 [Service]
 Type=notify
