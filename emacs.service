@@ -9,8 +9,10 @@ After=org.gnome.Shell@wayland.service
 
 [Service]
 Type=notify
-Environment="LSP_USE_PLISTS=true"
 ExecStart=/usr/bin/emacs --fg-daemon
+
+# lsp-mode likes this set to run faster
+Environment="LSP_USE_PLISTS=true"
 
 # Emacs will exit with status 15 after having received SIGTERM, which
 # is the default "KillSignal" value systemd uses to stop services.
