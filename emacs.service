@@ -4,8 +4,8 @@
 [Unit]
 Description=Emacs text editor
 Documentation=info:emacs man:emacs(1) https://gnu.org/software/emacs/
-Requires=gnome-session-x11-services-ready.target
-After=gnome-session-x11-services-ready.target
+Requires=gnome-session-manager@gnome.service
+After=gnome-session-manager@gnome.service
 
 [Service]
 Type=notify
