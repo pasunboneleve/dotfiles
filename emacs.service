@@ -4,8 +4,6 @@
 [Unit]
 Description=Emacs text editor
 Documentation=info:emacs man:emacs(1) https://gnu.org/software/emacs/
-Requires=gnome-session-manager@gnome.service
-After=gnome-session-manager@gnome.service
 
 [Service]
 Type=notify
@@ -24,4 +22,4 @@ Environment=SSH_AUTH_SOCK=%t/keyring/ssh
 Restart=on-failure
 
 [Install]
-WantedBy=default.target
+WantedBy=gnome-session-manager@gnome.service
