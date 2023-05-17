@@ -15,3 +15,7 @@ fi
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # nvm use v12.22.12
 #
+
+## cache direnv, so it loads faster
+## https://github.com/nix-community/nix-direnv
+source $HOME/.nix-profile/share/nix-direnv/direnvrc
