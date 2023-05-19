@@ -1,4 +1,4 @@
-export PATH=${PATH}:${HOME}/.local/bin
+export PATH=${HOME}/.local/bin:${PATH}
 
 export EDITOR="emacsclient -t"
 export VISUAL="emacsclient -c"
