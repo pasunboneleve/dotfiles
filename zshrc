@@ -1,3 +1,7 @@
+# zshrc is only used by interactive shells, so it is safe to
+# set environment variables here that shouldn't be used by
+# non-interactive programs and applications.
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
@@ -106,3 +110,24 @@ render-markdown () {
   (echo $html_body) > $filepath
   google-chrome $filepath
 }
+
+# necessary to use tramp-mode
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+
+plugin=(
+  pyenv
+)
+
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+if [ -f $HOME/.secret_env ]; then source ~/.secret_env; fi
