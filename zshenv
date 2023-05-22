@@ -25,8 +25,8 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-eval "$(direnv hook zsh)"
-eval "$(ssh-agent -s)"
+# eval "$(direnv hook zsh)"
+# eval "$(ssh-agent -s)"
 
 DIRENV_ALLOW_NIX=1
 
