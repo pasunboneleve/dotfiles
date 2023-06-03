@@ -7,7 +7,7 @@ Documentation=info:emacs man:emacs(1) https://gnu.org/software/emacs/
 
 [Service]
 Type=notify
-ExecStart=/usr/bin/emacs --fg-daemon
+ExecStart=$HOME/.local/bin/emacs --fg-daemon
 
 # lsp-mode likes this set to run faster
 Environment=LSP_USE_PLISTS=true
