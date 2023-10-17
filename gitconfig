@@ -5,3 +5,5 @@
     conflictstyle = diff3
 [pull]
 	rebase = false
+[diff]
+	context = 1
