@@ -34,3 +34,6 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 
 # make sure emacs is fast with LSP
 export LSP_USE_PLISTS=true
+
+# make go happy
+export GOBIN=${GOBIN:-$(go env GOPATH)/bin}
