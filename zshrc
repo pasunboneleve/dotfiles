@@ -132,3 +132,5 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 if [ -f $HOME/.secret_env ]; then source ~/.secret_env; fi
+
+source <(kubectl completion zsh)
