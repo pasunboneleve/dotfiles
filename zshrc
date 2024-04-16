@@ -2,8 +2,9 @@
 # set environment variables here that shouldn't be used by
 # non-interactive programs and applications.
 
-# disable flow control, so the terminal doesn't freeze
-# when we press cntrl-s
+# Disable flow control, so the terminal doesn't freeze
+# when we press ctrl-s. Without it flow can be regained
+# by pressing ctrl-q.
 stty ixany
 
 # Lines configured by zsh-newuser-install
