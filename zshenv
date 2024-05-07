@@ -2,7 +2,7 @@
 # Hence, be careful about what to include in here, as it may slow down
 # all applications needlessly, or even reset things they set.
 
-export PATH=${HOME}/go:${HOME}/.local/bin:${PATH}
+export PATH=${HOME}/go/bin:${HOME}/.local/bin:${PATH}
 
 export EDITOR="emacsclient -t"
 export VISUAL="emacsclient -c"
