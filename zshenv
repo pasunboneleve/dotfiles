@@ -2,7 +2,7 @@
 # Hence, be careful about what to include in here, as it may slow down
 # all applications needlessly, or even reset things they set.
 
-export PATH=${HOME}/.local/bin:${PATH}
+export PATH=${HOME}/go:${HOME}/.local/bin:${PATH}
 
 export EDITOR="emacsclient -t"
 export VISUAL="emacsclient -c"
@@ -36,4 +36,5 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 export LSP_USE_PLISTS=true
 
 # make go happy
+export GOPATH=${HOME}/go
 export GOBIN=${GOBIN:-$(go env GOPATH)/bin}
