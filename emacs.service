@@ -7,7 +7,7 @@ Documentation=info:emacs man:emacs(1) https://gnu.org/software/emacs/
 
 [Service]
 Type=notify
-ExecStart=$HOME/.local/bin/emacs --fg-daemon
+ExecStart=/usr/bin/emacs --fg-daemon
 # ExecStart=/usr/bin/emacs --fg-daemon
 
 # lsp-mode likes this set to run faster
@@ -21,6 +21,9 @@ SuccessExitStatus=15
 # set it from PAM, so don't override by default.
 Environment=SSH_AUTH_SOCK=%t/keyring/ssh
 Restart=on-failure
+
+# If systemd runs out of PIDs
+NotifyAccess=all
 
 [Install]
 WantedBy=gnome-session-manager@gnome.service
