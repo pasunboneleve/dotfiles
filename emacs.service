@@ -22,8 +22,5 @@ SuccessExitStatus=15
 Environment=SSH_AUTH_SOCK=%t/keyring/ssh
 Restart=on-failure
 
-# If systemd runs out of PIDs
-NotifyAccess=all
-
 [Install]
 WantedBy=gnome-session-manager@gnome.service
