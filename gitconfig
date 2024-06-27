@@ -1,9 +1,12 @@
 [user]
 	email = 1708810+pasunboneleve@users.noreply.github.com
 	name = Daniel Vianna
+	signingkey = 76671F7F5E75559C
 [merge]
     conflictstyle = diff3
 [pull]
 	rebase = false
 [diff]
 	context = 1
+[commit]
+	gpgsign = false
