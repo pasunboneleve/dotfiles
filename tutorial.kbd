@@ -919,8 +919,7 @@
   hydra-style functionality support in KMonad.
 
   -------------------------------------------------------------------------- |#
-
-(defalias
+kbd-mode-switch(falias
   ns  (around-next sft)  ;; Shift the next press
   nnm (around-next @num) ;; Perform next press in numbers layer
   ntm (around-next-timeout 500 sft XX)
