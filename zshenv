@@ -38,3 +38,7 @@ export LSP_USE_PLISTS=true
 # make go happy
 export GOPATH=${HOME}/go
 export GOBIN=${GOBIN:-$(go env GOPATH)/bin}
+
+# make DBT happy
+DBT_PROFILES_DIR=$HOME/.dbt # where $HOME points to your home directory
+export DBT_PROFILES_DIR
