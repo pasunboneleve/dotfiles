@@ -42,3 +42,6 @@ export GOBIN=${GOBIN:-$(go env GOPATH)/bin}
 # make DBT happy
 DBT_PROFILES_DIR=$HOME/.dbt # where $HOME points to your home directory
 export DBT_PROFILES_DIR
+
+# add krew to PATH
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
