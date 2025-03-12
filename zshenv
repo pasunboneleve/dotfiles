@@ -45,3 +45,6 @@ export DBT_PROFILES_DIR
 
 # add krew to PATH
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# make GHC happy and not choke with UTF-8
+LANG=C.UTF-8
