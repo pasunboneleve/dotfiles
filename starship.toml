@@ -63,5 +63,5 @@ disabled = false
 format = '[⛵ \($namespace\) $context](dimmed blue) '
 
 [git_branch]
-format = '[$symbol$branch:$remote_branch](bright black)'
+format = '[$symbol$branch:$remote_branch](blue)'
 truncation_length = 25
