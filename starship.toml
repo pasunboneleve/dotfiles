@@ -61,3 +61,7 @@ format = "via [$symbol($output)]($style) "
 [kubernetes]
 disabled = false
 format = '[⛵ \($namespace\) $context](dimmed blue) '
+
+[git_branch]
+format = '[$symbol$branch:$remote_branch](bright black)'
+truncation_length = 25
