@@ -120,21 +120,21 @@ render-markdown () {
 # necessary to use tramp-mode
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
-
 # nvm
 export NVM_DIR="$HOME/.nvm"
 
-plugin=(
-  pyenv
-)
+# # pyenv
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
 
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# plugin=(
+#   pyenv
+# )
+
+# eval "$(pyenv init --path)"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 if [ -f $HOME/.secret_env ]; then source ~/.secret_env; fi
 
