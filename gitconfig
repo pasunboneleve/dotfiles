@@ -10,3 +10,5 @@
 	context = 1
 [commit]
 	gpgsign = false
+[init]
+	defaultBranch = main
