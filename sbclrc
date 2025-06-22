@@ -1,0 +1,14 @@
+;;; ~/.sbclrc
+;;;
+;;; configuration for common lisp
+;;;
+(setf sb-impl::*default-external-format* :utf8)
+(pushnew "~/src/sandbox/lisp/cookbook/" asdf:*central-registry* :test #'equal)
+
+
+;;; The following lines added by ql:add-to-init-file:
+#-quicklisp
+(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
+                                       (user-homedir-pathname))))
+  (when (probe-file quicklisp-init)
+    (load quicklisp-init)))
