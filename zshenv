@@ -48,3 +48,6 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # make GHC happy and not choke with UTF-8
 LANG=en_AU.UTF-8
+
+# bun is better than npm
+export PATH=${HOME}/.bun/bin:$PATH
