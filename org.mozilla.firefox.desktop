@@ -1,0 +1,32 @@
+#
+# Place this in ~/.local/share/applications/org.mozilla.firefox.desktop
+# to make Firefox use the NVIDIA GPU to run The RDD (Remote Data Decoding)
+# process. Else it will hog the CPU.
+#
+
+[Desktop Entry]
+Version=1.0
+Name=Firefox
+GenericName=Web Browser
+Exec=env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox %u
+Icon=firefox
+Terminal=false
+Type=Application
+MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+Categories=Network;WebBrowser;
+Keywords=web;browser;internet;
+Actions=new-window;new-private-window;profile-manager-window;
+X-Desktop-File-Install-Version=0.28
+
+[Desktop Action new-window]
+Name=Open a New Window
+Exec=env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox --new-window %u
+
+[Desktop Action new-private-window]
+Name=Open a New Private Window
+Exec=env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox --private-window %u
+
+[Desktop Action profile-manager-window]
+Name=Open the Profile Manager
+Exec=env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox --ProfileManager
