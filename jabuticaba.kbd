@@ -45,14 +45,14 @@
 )
 
 (defalias
-  am (tap-next-press a lmet)
-  ss (tap-next-press s lsft)
-  da (tap-next-press d lalt)
-  fc (tap-next-press f lctl)
-  jc (tap-next-press j rctl)
-  ka (tap-next-press k ralt)
-  ls (tap-next-press l rsft)
-  ;m (tap-next-press ; rmet)
+  am (tap-next-press (around a P35) lmet)
+  ss (tap-next-press (around s P35) lsft)
+  da (tap-next-press (around d P35) lalt)
+  fc (tap-next-press (around f P35) lctl)
+  jc (tap-next-press (around j P35) rctl)
+  ka (tap-next-press (around k P35) ralt)
+  ls (tap-next-press (around l P35) rsft)
+  ;m (tap-next-press (around ; P35) rmet)
 )
 
 (deflayer qwerty-home-row
