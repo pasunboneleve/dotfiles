@@ -3,6 +3,11 @@
 # to make Firefox use the NVIDIA GPU to run The RDD (Remote Data Decoding)
 # process. Else it will hog the CPU.
 #
+# You will also need
+# sudo dnf install switcheroo-control
+# sudo systemctl enable --now switcheroo-control
+# and reboot
+#
 
 [Desktop Entry]
 Version=1.0
