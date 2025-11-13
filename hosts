@@ -1,0 +1,15 @@
+# Userland hosts file
+
+# Create your custom hosts file in your home directory (e.g., ~/my_hosts).
+# Run the command `sudo unshare --mount` to start a new shell with a private mount namespace.
+# Inside this new shell, use `mount <your_custom_hosts_file> /etc/hosts --bind` to replace the
+# system's hosts file with your custom one for that session only.
+# Any programs run from this shell will use your custom file.
+
+# Loopback entries; do not change.
+# For historical reasons, localhost precedes localhost.localdomain:
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+# See hosts(5) for proper format and other examples:
+# 192.168.1.10 foo.example.org foo
+# 192.168.1.13 bar.example.org bar
