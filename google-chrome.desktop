@@ -1,4 +1,5 @@
 ;; Symlink to ~/.local/share/applications/google-chrome.desktop
+;; Unless it uses XWayland, NVIDIA will not function properly
 
 [Desktop Entry]
 Version=1.0
