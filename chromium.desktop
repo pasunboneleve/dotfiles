@@ -1,5 +1,9 @@
-;; Symlink to ~/.local/share/applications/chromium.desktop
-;; Unless it uses XWayland, NVIDIA will not function properly
+#
+# Symlink to ~/.local/share/applications/chromium.desktop
+#
+# run update-desktop-database ~/.local/share/applications/
+# after making changes here so they're immediately effective
+#
 
 [Desktop Entry]
 Version=1.0
