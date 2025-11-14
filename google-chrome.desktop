@@ -11,7 +11,7 @@ Version=1.0
 Name=Google Chrome
 GenericName=Web Browser
 Comment=Access the Internet
-Exec=/usr/bin/chromium-browser --ozone-platform=x11 --enable-features=Vulkan,DrmTip,VaapiVideoDecoder,VaapiVideoEncoder --use-vulkan=always %U
+Exec=/usr/bin/google-chrome-canary --ozone-platform=x11 --enable-features=Vulkan,DrmTip,VaapiVideoDecoder,VaapiVideoEncoder --use-vulkan=always %U
 StartupNotify=true
 Terminal=false
 Icon=google-chrome
