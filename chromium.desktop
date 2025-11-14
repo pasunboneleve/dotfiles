@@ -11,7 +11,7 @@ Version=1.0
 Name=Chromium
 GenericName=Web Browser
 Comment=Access the Internet
-Exec=/usr/bin/chromium-browser --ozone-platform=x11 --enable-features=Vulkan,DrmTip,VaapiVideoDecoder,VaapiVideoEncoder --use-vulkan=always %U
+Exec=/usr/bin/chromium-browser --enable-chrome-browser-cloud-management --enable-features=AllowQt,WaylandLinuxDrmSyncobj,WaylandPerSurfaceScale,WaylandUiScale,AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoEncoder --enable-plugins --enable-extensions --enable-user-scripts --enable-printing --enable-sync --auto-ssl-client-auth --ozone-platform=x11 --enable-features=Vulkan,DrmTip,VaapiVideoDecoder,VaapiVideoEncoder --use-vulkan=always --flag-switches-begin --flag-switches-end --origin-trial-disabled-features='CanvasTextNg|WebAssemblyCustomDescriptors'
 StartupNotify=true
 Terminal=false
 Icon=google-chrome
