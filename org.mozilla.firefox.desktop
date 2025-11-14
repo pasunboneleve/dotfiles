@@ -13,7 +13,7 @@
 Version=1.0
 Name=Firefox
 GenericName=Web Browser
-Exec=env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox %u
+Exec=firefox %u
 Icon=firefox
 Terminal=false
 Type=Application
@@ -26,12 +26,12 @@ X-Desktop-File-Install-Version=0.28
 
 [Desktop Action new-window]
 Name=Open a New Window
-Exec=env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox --new-window %u
+Exec=firefox --new-window %u
 
 [Desktop Action new-private-window]
 Name=Open a New Private Window
-Exec=env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox --private-window %u
+Exec=firefox --private-window %u
 
 [Desktop Action profile-manager-window]
 Name=Open the Profile Manager
-Exec=env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia firefox --ProfileManager
+Exec=firefox --ProfileManager
