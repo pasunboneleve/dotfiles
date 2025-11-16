@@ -14,16 +14,7 @@ nvidia
 
 Check [rpmfusion - NVIDIA howto](https://rpmfusion.org/Howto/NVIDIA).
 
-Also consider using vdpau instead of vaapi.
-
-```
-sudo dnf install nvidia-vdpau-driver --allowerasing
-```
-Finally, add `~/.config/environment.d/90-nvidia.conf`
-
-```
-__NV_PRIME_RENDER_OFFLOAD=1
-__GLX_VENDOR_LIBRARY_NAME=nvidia
-__VK_LAYER_NV_optimus=NVIDIA_only
-```
-to let `chrome` and friends to know they should use the NVIDIA GPU.
+Then add [mutter-primary-gpu.rules](62-mutter-primary-gpu.rules) to
+`/etc/udev/rules.d` and reboot. Make sure you read the instructions.
+Unless you make **gnome-shell** work with **NVIDIA**, you'll need to
+tell every application individually to do so, which would be a hassle.

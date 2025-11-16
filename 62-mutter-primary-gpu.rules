@@ -12,7 +12,6 @@
 # $ nvidia-smi
 #
 
-
 ENV{DEVNAME}=="/dev/dri/card0", TAG+="mutter-device-preferred-primary"
 
 #
