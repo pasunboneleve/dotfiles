@@ -11,6 +11,7 @@ stty ixany
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
+setopt hist_ignore_dups
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
