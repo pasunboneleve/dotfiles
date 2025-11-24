@@ -1,0 +1,46 @@
+#
+# This is an alternative to the 62-mutter-primary-gpu.rules suggested for
+# NVIDIA laptops. Choose one or the other. This one will select the
+# integrated GPU instead of NVIDIA if we start the machine running on
+# battery.
+#
+# Place this file in /etc/udev/rules.d/90-power-gpu-tagging.rules. Find out
+# which is the card you want to use as primary with
+#
+# $ drm_info -j | jq '. | with_entries(.value |= .driver.desc)'
+#
+# to confirm, as this script expects, that the NVIDIA card is card0.
+#
+# Check if your programs appear in the list used by NVIDIA when running
+# on AC power.
+#
+# $ nvidia-smi
+#
+
+
+# --- Part 1: Trigger on power supply change ---
+# When the power supply state changes:
+# 1. Import the new power state (e.g., POWER_STATE=AC)
+# 2. Trigger a 'change' event for all DRM devices to apply tags
+SUBSYSTEM=="power_supply", ACTION=="change", \
+    IMPORT{program}="/usr/local/bin/get-power-state.sh", \
+    RUN+="/usr/bin/udevadm trigger --subsystem-match=drm --action=change"
+
+
+# --- Part 2: Handle DRM device events (on boot AND on trigger) ---
+# On 'add' (boot) OR 'change' (triggered by Part 1), import the *current*
+# power state.
+SUBSYSTEM=="drm", KERNEL=="card[0-9]*", ACTION=="add|change", \
+    IMPORT{program}="/usr/local/bin/get-power-state.sh"
+
+
+# --- Part 3: Apply tags based on imported state ---
+# These rules run *after* the IMPORT has set the ENV{POWER_STATE} variable.
+
+# AC Power: Tag card0, untag card1
+SUBSYSTEM=="drm", KERNEL=="card0", ENV{POWER_STATE}=="AC", TAG+="mutter-device-preferred-primary"
+SUBSYSTEM=="drm", KERNEL=="card1", ENV{POWER_STATE}=="AC", TAG-="mutter-device-preferred-primary"
+
+# Battery Power: Tag card1, untag card0
+SUBSYSTEM=="drm", KERNEL=="card1", ENV{POWER_STATE}=="BATTERY", TAG+="mutter-device-preferred-primary"
+SUBSYSTEM=="drm", KERNEL=="card0", ENV{POWER_STATE}=="BATTERY", TAG-="mutter-device-preferred-primary"
