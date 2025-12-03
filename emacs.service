@@ -1,31 +1,29 @@
-# systemctl --user enable emacs.service
-# edit /lib/systemd/user/emacs.service
+#
+# Place this in ~/.config/systemd/user/gnome-session-manager@gnome.service.wants/
+#
+# and run
+#
 # systemctl --user daemon-reload
-# it probably won't work
+#
+# and enable and start the service.
+#
+
 [Unit]
 Description=Emacs text editor
 Documentation=info:emacs man:emacs(1) https://gnu.org/software/emacs/
 
 [Service]
 Type=notify
-ExecStart=/usr/bin/emacs --daemon
-ExecStop=/usr/bin/emacs --eval "(kill-emacs)"
+ExecStart=/usr/bin/emacs --fg-daemon
 
 # Emacs will exit with status 15 after having received SIGTERM, which
 # is the default "KillSignal" value systemd uses to stop services.
 SuccessExitStatus=15
 
-# lsp-mode likes this set to run faster
-Environment="LSP_USE_PLISTS=true"
-
-# Necessary if Emacs tries to interact with X/Wayland
-Environment="WAYLAND_DISPLAY=wayland-1"
-
 # The location of the SSH auth socket varies by distribution, and some
 # set it from PAM, so don't override by default.
-Environment=SSH_AUTH_SOCK=%t/keyring/ssh
+# Environment=SSH_AUTH_SOCK=%t/keyring/ssh
 Restart=on-failure
 
 [Install]
-# WantedBy=default.target
-WantedBy=gnome-session-manager@gnome.service
+WantedBy=default.target
