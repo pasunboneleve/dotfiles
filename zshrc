@@ -140,3 +140,6 @@ export NVM_DIR="$HOME/.nvm"
 if [ -f $HOME/.secret_env ]; then source ~/.secret_env; fi
 
 source <(kubectl completion zsh)
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
