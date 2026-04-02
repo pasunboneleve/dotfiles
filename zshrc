@@ -143,3 +143,25 @@ source <(kubectl completion zsh)
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# simplify gcloud red tape
+
+ gcloud-use() {
+    local account="$1"
+    local project="$2"
+
+    if [ -z "$account" ] || [ -z "$project" ]; then
+      echo "usage: gcloud-use <account> <project-id>"
+      return 1
+    fi
+
+    gcloud auth login "$account" || return 1
+    gcloud config set account "$account" || return 1
+    gcloud config set project "$project" || return 1
+    gcloud auth application-default login || return 1
+    gcloud auth application-default set-quota-project "$project" || return 1
+
+    echo
+    echo "Active gcloud account: $(gcloud config get-value account 2>/dev/null)"
+    echo "Active gcloud project: $(gcloud config get-value project 2>/dev/null)"
+  }
