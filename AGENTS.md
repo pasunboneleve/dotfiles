@@ -67,3 +67,30 @@
 - Are failure paths visible and safe?
 - Are external interfaces clean and intentional?
 - Is there any unfinished work left behind?
+
+## Commit Commentary Requirements
+
+Non-trivial changes must include a commit message that captures not only
+what changed, but why.
+
+A change is considered non-trivial if it:
+- introduces or modifies an abstraction or boundary
+- changes system behaviour or invariants
+- affects failure handling or external interfaces
+- involves meaningful design tradeoffs
+
+For such changes, commit messages should include:
+
+1. Context
+2. Decision
+3. Alternatives considered
+4. Tradeoffs
+5. Architectural impact
+
+Keep this proportional to the change. Do not add ceremony for simple or
+mechanical edits.
+
+Do not submit commits that only describe "what changed" when design
+decisions are involved.
+
+Prefer capturing reasoning once in a good commit message over scattering it across code comments.
