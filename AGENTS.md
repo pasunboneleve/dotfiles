@@ -30,6 +30,7 @@
 - Pass meaningful state explicitly.
 - Do not rely on implicit coupling through environment or shared globals.
 - Prefer explicit signals over timing-based coordination (no "sleep" to fix races).
+- Prefer a pure core with an imperative shell.
 
 ## Design defaults
 
