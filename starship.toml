@@ -8,13 +8,9 @@ $git_state\
 $git_metrics\
 $git_status\
 $kubernetes\
-$package\
 ${custom.haskell_version}\
 ${custom.haskell_compiler}\
-$nodejs\
 $python\
-$rust\
-$aws\
 $env_var\
 $sudo\
 $fill\
