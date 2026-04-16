@@ -68,6 +68,18 @@
 - Are external interfaces clean and intentional?
 - Is there any unfinished work left behind?
 
+## Writing style
+
+- Use Australian-style headings: capitalise only the first word and
+  any proper nouns or acronyms (e.g., “Infrastructure overview”, not
+  “Infrastructure Overview”).
+- Follow Strunk & White principles:
+  - Omit needless words.
+  - Prefer short, direct sentences.
+  - Use active voice.
+  - Avoid fluff, filler, and marketing language.
+  - Make instructions concrete and unambiguous.
+
 ## Commit Commentary Requirements
 
 Non-trivial changes must include a commit message that captures not only
