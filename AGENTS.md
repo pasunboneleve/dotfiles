@@ -82,6 +82,16 @@
   - Avoid fluff, filler, and marketing language.
   - Make instructions concrete and unambiguous.
 
+## Versioning
+
+Use Semantic Versioning (SemVer): MAJOR.MINOR.PATCH.
+
+- PATCH: bug fixes, refactors, cosmetic changes — no new features, no breaking changes
+- MINOR: new backwards-compatible features
+- MAJOR: breaking changes
+
+When in doubt, a change that adds no new user-visible capability is a patch.
+
 ## Commit Commentary Requirements
 
 Non-trivial changes must include a commit message that captures not only
