@@ -47,7 +47,9 @@
 - Prefer decoupling over reuse.
 - Prefer local reasoning over global coordination.
 - Prefer textual interfaces over tightly coupled APIs.
-- Keep architecture legible. If a change requires understanding internals across many modules, the abstraction is wrong.
+- Keep architecture legible. If a change requires understanding
+  internals across many modules, the abstraction is wrong.
+- Use idiomatic constructs.
 
 ## Smells to question
 
