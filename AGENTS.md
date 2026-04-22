@@ -60,6 +60,7 @@
 - A refactor increases indirection without making change easier.
 - Tests are hard to run locally.
 - Duplication was removed by introducing a worse abstraction.
+- `sleep` used to fix race conditions.
 
 ## Review checklist
 
