@@ -12,3 +12,5 @@
 	gpgsign = false
 [init]
 	defaultBranch = main
+[remote]
+	pushDefault = pasunboneleve
