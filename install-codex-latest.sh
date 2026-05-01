@@ -3,7 +3,7 @@
 set -euo pipefail
 
 readonly CODEX_REPO_API_URL="https://api.github.com/repos/openai/codex/releases/latest"
-readonly CODEX_TARGET_TRIPLE="x86_64-unknown-linux-gnu"
+readonly CODEX_TARGET_TRIPLE="x86_64-unknown-linux-musl"
 readonly CODEX_ARCHIVE_NAME="codex-${CODEX_TARGET_TRIPLE}.tar.gz"
 readonly CODEX_BUNDLE_NAME="codex-${CODEX_TARGET_TRIPLE}.sigstore"
 readonly CODEX_EXTRACTED_BINARY_NAME="codex-${CODEX_TARGET_TRIPLE}"
