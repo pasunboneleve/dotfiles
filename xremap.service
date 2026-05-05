@@ -1,0 +1,16 @@
+# systemctl --user enable ./xremap.service
+# systemctl --user start xremap.service
+
+[Unit]
+Description=Start remap
+
+[Service]
+Type=exec
+TimeOutStartSec=30
+WorkingDirectory=%h
+StandardOutput=journal
+ExecStart=xremap %h/.config/dotfiles/xremap.yml
+Restart=always
+
+[Install]
+WantedBy=default.target
