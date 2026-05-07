@@ -19,6 +19,9 @@ keymap:
       # Page up/down
       M-v: { with_mark: pageup }
       C-v: { with_mark: pagedown }
+      # Webpage zoom
+      C-XUPSCROLL: C-equal
+      C-XDOWNSCROLL: C-minus
       # Beginning/End of file
       M-Shift-comma: { with_mark: C-home }
       M-Shift-dot: { with_mark: C-end }
