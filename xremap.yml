@@ -2,7 +2,7 @@
 keymap:
   - name: Emacs
     application:
-      not: [emacs, org.gnome.Ptyxis, com.mitchellh.ghostty, Gnome-terminal]
+      not: [emacs, org.gnome.Ptyxis, com.mitchellh.ghostty, org.gnome.Terminal]
     remap:
       # Cursor
       C-b: { with_mark: left }
