@@ -38,6 +38,7 @@ When changing or reviewing README files, docs, help text, man pages, info pages,
 
 Prefer and apply:
 - $documentation-boundary
+- $docs-structure
 - $strunk-white-editor
 
 ## Browser and realtime UI
