@@ -40,6 +40,10 @@ Prefer and apply:
 - $documentation-boundary
 - $strunk-white-editor
 
+## Browser and realtime UI
+
+When working on browser UI, realtime visualisation, CSS, WebSocket streams, Hono, Vite, Bun, Cloudflare-style Workers, Canvas, SVG, or D3, load and apply `$web-realtime-devloop`.
+
 ## Conflict resolution
 
 If instructions conflict:
