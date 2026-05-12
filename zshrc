@@ -165,3 +165,7 @@ source <(kubectl completion zsh)
     echo "Active gcloud account: $(gcloud config get-value account 2>/dev/null)"
     echo "Active gcloud project: $(gcloud config get-value project 2>/dev/null)"
   }
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
