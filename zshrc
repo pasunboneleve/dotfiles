@@ -139,7 +139,9 @@ export NVM_DIR="$HOME/.nvm"
 
 if [ -f $HOME/.secret_env ]; then source ~/.secret_env; fi
 
-source <(kubectl completion zsh)
+if command -v kubectl >/dev/null 2>&1; then
+  source <(kubectl completion zsh)
+fi
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
@@ -168,4 +170,6 @@ source <(kubectl completion zsh)
 
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+if command -v ng >/dev/null 2>&1; then
+  source <(ng completion script)
+fi
