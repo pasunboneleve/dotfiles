@@ -15,7 +15,7 @@ setopt hist_ignore_dups
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '$HOME/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
 compinit
@@ -94,10 +94,10 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '$HOME/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/Downloads/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/Downloads/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '$HOME/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc"; fi
 
 # open markdown files as html in chrome
 render-markdown () {
@@ -137,7 +137,7 @@ export NVM_DIR="$HOME/.nvm"
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
 
-if [ -f $HOME/.secret_env ]; then source ~/.secret_env; fi
+if [ -f "$HOME/.secret_env" ]; then source "$HOME/.secret_env"; fi
 
 if command -v kubectl >/dev/null 2>&1; then
   source <(kubectl completion zsh)
