@@ -7,6 +7,8 @@ export PATH=${HOME}/go/bin:${HOME}/.local/bin:${PATH}
 export EDITOR="emacsclient -t"
 export VISUAL="emacsclient -c"
 
+export GPG_TTY=$(tty)
+
 # set window title
 precmd() { echo -en "\e]0;`basename ${PWD}`\a" }
 
