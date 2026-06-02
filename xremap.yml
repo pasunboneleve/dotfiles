@@ -31,7 +31,6 @@ keymap:
       C-o: [enter, left]
       # Copy
       C-w: [C-x, { set_mark: false }]
-      M-w: [C-c, { set_mark: false }]
       C-y: [C-v, { set_mark: false }]
       # Delete
       C-d: [delete, { set_mark: false }]
@@ -68,3 +67,15 @@ keymap:
           C-c: C-q
           # C-x u (undo)
           u: [C-z, { set_mark: false }]
+  - name: Emacs copy
+    application:
+      not:
+        - emacs
+        - org.gnome.Ptyxis
+        - com.mitchellh.ghostty
+        - org.gnome.Terminal
+        - chromium
+        - chromium-browser
+        - org.chromium.Chromium
+    remap:
+      M-w: [C-c, { set_mark: false }]
