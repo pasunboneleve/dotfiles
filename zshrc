@@ -173,3 +173,5 @@ fi
 if command -v ng >/dev/null 2>&1; then
   source <(ng completion script)
 fi
+export PATH="$HOME/.bhc/bin:$PATH"
+export LIBRARY_PATH="$HOME/.bhc/lib:$LIBRARY_PATH"
