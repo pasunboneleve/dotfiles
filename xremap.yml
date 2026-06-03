@@ -2,7 +2,16 @@
 keymap:
   - name: Emacs
     application:
-      not: [emacs, org.gnome.Ptyxis, com.mitchellh.ghostty, org.gnome.Terminal]
+      not:
+        - emacs
+        - org.gnome.Ptyxis
+        - com.mitchellh.ghostty
+        - org.gnome.Terminal
+        - org.remmina.Remmina
+        - remmina
+        - remmina-gnome
+        - org.gnome.Connections
+        - gnome-connections
     remap:
       # Cursor
       C-b: { with_mark: left }
@@ -77,5 +86,10 @@ keymap:
         - chromium
         - chromium-browser
         - org.chromium.Chromium
+        - org.remmina.Remmina
+        - remmina
+        - remmina-gnome
+        - org.gnome.Connections
+        - gnome-connections
     remap:
       M-w: [C-c, { set_mark: false }]
