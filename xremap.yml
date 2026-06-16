@@ -1,4 +1,40 @@
 # Credit: https://github.com/mooz/xkeysnail/blob/bf3c93b4fe6efd42893db4e6588e5ef1c4909cfb/example/config.py#L62-L125
+modmap:
+  - name: Homerow mods
+    remap:
+      a:
+        held: super_l
+        alone: a
+        alone_timeout_millis: 200
+      s:
+        held: shift_l
+        alone: s
+        alone_timeout_millis: 200
+      d:
+        held: alt_l
+        alone: d
+        alone_timeout_millis: 200
+      f:
+        held: ctrl_l
+        alone: f
+        alone_timeout_millis: 200
+      j:
+        held: ctrl_r
+        alone: j
+        alone_timeout_millis: 200
+      k:
+        held: alt_r
+        alone: k
+        alone_timeout_millis: 200
+      l:
+        held: shift_r
+        alone: l
+        alone_timeout_millis: 200
+      semicolon:
+        held: super_r
+        alone: semicolon
+        alone_timeout_millis: 200
+
 keymap:
   - name: Emacs
     application:
