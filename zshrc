@@ -79,13 +79,24 @@ autoload -Uz bashcompinit
 bashcompinit
 eval "$(register-python-argcomplete pipx)"
 
+# zsh plugins shipped by the system package manager live under different
+# prefixes: Fedora's dnf uses /usr/share, Homebrew uses $(brew --prefix)/share.
+# HOMEBREW_PREFIX is exported by `brew shellenv` in zshenv on macOS.
+if [[ -n ${HOMEBREW_PREFIX:-} ]]; then
+  _zsh_plugin_prefix="$HOMEBREW_PREFIX/share"
+else
+  _zsh_plugin_prefix="/usr/share"
+fi
+
 # autocompletion
 # zinit light marlonrichert/zsh-autocomplete
-zinit snippet /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -r "$_zsh_plugin_prefix/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && \
+  zinit snippet "$_zsh_plugin_prefix/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 ## highlight syntax (must be last thing in zshrc)
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -r "$_zsh_plugin_prefix/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && \
+  source "$_zsh_plugin_prefix/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 ## direnv
 eval "$(direnv hook zsh)"
@@ -175,3 +186,7 @@ if command -v ng >/dev/null 2>&1; then
 fi
 export PATH="$HOME/.bhc/bin:$PATH"
 export LIBRARY_PATH="$HOME/.bhc/lib:$LIBRARY_PATH"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/dmvianna/.local/bin:$PATH"

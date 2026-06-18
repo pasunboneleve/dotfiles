@@ -2,6 +2,16 @@
 # Hence, be careful about what to include in here, as it may slow down
 # all applications needlessly, or even reset things they set.
 
+# On macOS, put Homebrew on PATH (Apple Silicon: /opt/homebrew, Intel:
+# /usr/local) and export HOMEBREW_PREFIX before anything else needs it.
+if [[ "$OSTYPE" == darwin* ]]; then
+  if [[ -x /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [[ -x /usr/local/bin/brew ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
+fi
+
 export PATH=${HOME}/go/bin:${HOME}/.local/bin:${PATH}
 
 export EDITOR="emacsclient -t"
@@ -23,7 +33,7 @@ DIRENV_ALLOW_NIX=1
 
 if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then . "$HOME/.nix-profile/etc/profile.d/nix.sh"; fi # added by Nix installer
 
-. "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 # >>> coursier install directory >>>
 export PATH="$PATH:$HOME/.local/share/coursier/bin"
@@ -39,7 +49,7 @@ export LSP_USE_PLISTS=true
 
 # make go happy
 export GOPATH=${HOME}/go
-export GOBIN=${GOBIN:-$(go env GOPATH)/bin}
+export GOBIN=${GOBIN:-${GOPATH}/bin}
 
 # make DBT happy
 DBT_PROFILES_DIR=$HOME/.dbt # where $HOME points to your home directory
