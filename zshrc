@@ -77,7 +77,9 @@ autoload -Uz compinit
 compinit
 autoload -Uz bashcompinit
 bashcompinit
-eval "$(register-python-argcomplete pipx)"
+if command -v register-python-argcomplete >/dev/null 2>&1; then
+  eval "$(register-python-argcomplete pipx)"
+fi
 
 # zsh plugins shipped by the system package manager live under different
 # prefixes: Fedora's dnf uses /usr/share, Homebrew uses $(brew --prefix)/share.
