@@ -52,6 +52,11 @@ font-family = Inconsolata
 
 keybind = alt+o=goto_split:next
 keybind = alt+shift+o=goto_split:previous
+keybind = ctrl+x>2=new_split:down
+keybind = ctrl+x>3=new_split:right
+keybind = ctrl+x>0=close_surface
+keybind = ctrl+x>5>2=new_tab
+keybind = ctrl+x>5>0=close_tab:this
 
 # Authentic Solarized Dark – original Ethan Schoonover palette
 
