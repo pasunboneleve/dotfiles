@@ -192,3 +192,7 @@ export LIBRARY_PATH="$HOME/.bhc/lib:$LIBRARY_PATH"
 
 # Added by Antigravity CLI installer
 export PATH="/home/dmvianna/.local/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:$HOME/.lmstudio/bin"
+# End of LM Studio CLI section
