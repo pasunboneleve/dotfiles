@@ -1,0 +1,661 @@
+{
+  "global": {
+    "show_in_menu_bar": false
+  },
+  "profiles": [
+    {
+      "name": "moonlander home-row",
+      "selected": true,
+      "virtual_hid_keyboard": {
+        "keyboard_type_v2": "ansi"
+      },
+      "complex_modifications": {
+        "parameters": {
+          "basic.to_if_alone_timeout_milliseconds": 150,
+          "basic.to_if_held_down_threshold_milliseconds": 40
+        },
+        "rules": [
+          {
+            "description": "Left GUI (thumb cluster Super) held alone → Mission Control; tap or hold+key → Cmd",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "left_command", "modifiers": { "optional": ["any"] } },
+                "to": [{ "key_code": "left_command" }],
+                "to_if_held_down": [{ "apple_vendor_keyboard_key_code": "mission_control" }],
+                "parameters": {
+                  "basic.to_if_held_down_threshold_milliseconds": 300
+                }
+              }
+            ]
+          },
+          {
+            "description": "Emacs C-x prefix: activate C-x mode (not in Emacs/terminals)",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs",
+                    "^com\\.mitchellh\\.ghostty",
+                    "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2",
+                    "^io\\.alacritty",
+                    "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "x", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [{ "set_variable": { "name": "ctrl_x_mode", "value": 1 } }],
+                "to_delayed_action": {
+                  "to_if_invoked": [
+                    { "set_variable": { "name": "ctrl_x_mode", "value": 0 } }
+                  ],
+                  "to_if_canceled": [
+                    { "set_variable": { "name": "ctrl_x_mode", "value": 0 } }
+                  ]
+                },
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 1000
+                }
+              }
+            ]
+          },
+          {
+            "description": "Emacs C-x subcommands: h=select-all C-f=open C-s=save k=close C-c=quit u=undo C-g=cancel",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "h", "modifiers": { "optional": ["any"] } },
+                "to": [
+                  { "set_variable": { "name": "ctrl_x_mode", "value": 0 } },
+                  { "key_code": "a", "modifiers": ["left_command"] }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "f", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [
+                  { "set_variable": { "name": "ctrl_x_mode", "value": 0 } },
+                  { "key_code": "o", "modifiers": ["left_command"] }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "s", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [
+                  { "set_variable": { "name": "ctrl_x_mode", "value": 0 } },
+                  { "key_code": "s", "modifiers": ["left_command"] }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "k", "modifiers": { "optional": ["any"] } },
+                "to": [
+                  { "set_variable": { "name": "ctrl_x_mode", "value": 0 } },
+                  { "key_code": "w", "modifiers": ["left_command"] }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "c", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [
+                  { "set_variable": { "name": "ctrl_x_mode", "value": 0 } },
+                  { "key_code": "q", "modifiers": ["left_command"] }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "u", "modifiers": { "optional": ["any"] } },
+                "to": [
+                  { "set_variable": { "name": "ctrl_x_mode", "value": 0 } },
+                  { "key_code": "z", "modifiers": ["left_command"] }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "ctrl_x_mode", "value": 1 }
+                ],
+                "from": { "key_code": "g", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [
+                  { "set_variable": { "name": "ctrl_x_mode", "value": 0 } },
+                  { "key_code": "escape" }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Emacs keybindings (not in Emacs/terminals): navigation, editing, clipboard, search",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "b", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [{ "key_code": "left_arrow" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "f", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [{ "key_code": "right_arrow" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "p", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [{ "key_code": "up_arrow" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "n", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [{ "key_code": "down_arrow" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "b", "modifiers": { "mandatory": ["option"], "optional": ["any"] } },
+                "to": [{ "key_code": "left_arrow", "modifiers": ["left_option"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "f", "modifiers": { "mandatory": ["option"], "optional": ["any"] } },
+                "to": [{ "key_code": "right_arrow", "modifiers": ["left_option"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "a", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [{ "key_code": "left_arrow", "modifiers": ["left_command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "e", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [{ "key_code": "right_arrow", "modifiers": ["left_command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "v", "modifiers": { "mandatory": ["option"], "optional": ["any"] } },
+                "to": [{ "key_code": "page_up" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "v", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [{ "key_code": "page_down" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "comma", "modifiers": { "mandatory": ["option", "shift"], "optional": ["any"] } },
+                "to": [{ "key_code": "up_arrow", "modifiers": ["left_command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "period", "modifiers": { "mandatory": ["option", "shift"], "optional": ["any"] } },
+                "to": [{ "key_code": "down_arrow", "modifiers": ["left_command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "m", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [{ "key_code": "return_or_enter" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "j", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [{ "key_code": "return_or_enter" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "o", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [{ "key_code": "return_or_enter" }, { "key_code": "left_arrow" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "w", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [{ "key_code": "x", "modifiers": ["left_command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "y", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [{ "key_code": "v", "modifiers": ["left_command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "d", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [{ "key_code": "forward_delete" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "d", "modifiers": { "mandatory": ["option"], "optional": ["any"] } },
+                "to": [{ "key_code": "forward_delete", "modifiers": ["left_option"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "k", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [
+                  { "key_code": "right_arrow", "modifiers": ["left_shift", "left_command"] },
+                  { "key_code": "x", "modifiers": ["left_command"] }
+                ]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "spacebar", "modifiers": { "mandatory": ["control", "option"], "optional": ["any"] } },
+                "to": [{ "key_code": "right_arrow", "modifiers": ["left_option", "left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "slash", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [{ "key_code": "z", "modifiers": ["left_command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "s", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [{ "key_code": "f", "modifiers": ["left_command"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "r", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [{ "key_code": "f3", "modifiers": ["left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "5", "modifiers": { "mandatory": ["option", "shift"], "optional": ["any"] } },
+                "to": [{ "key_code": "f", "modifiers": ["left_command", "left_option"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs", "^com\\.mitchellh\\.ghostty", "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2", "^io\\.alacritty", "^net\\.kovidgoyal\\.kitty"
+                  ]}
+                ],
+                "from": { "key_code": "g", "modifiers": { "mandatory": ["control"], "optional": ["any"] } },
+                "to": [{ "key_code": "escape" }]
+              }
+            ]
+          },
+          {
+            "description": "Emacs M-w copy → Cmd-c (not in Emacs, terminals, or browsers)",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_unless", "name": "ctrl_x_mode", "value": 1 },
+                  { "type": "frontmost_application_unless", "bundle_identifiers": [
+                    "^org\\.gnu\\.Emacs",
+                    "^com\\.mitchellh\\.ghostty",
+                    "^com\\.apple\\.Terminal",
+                    "^com\\.googlecode\\.iterm2",
+                    "^io\\.alacritty",
+                    "^net\\.kovidgoyal\\.kitty",
+                    "^com\\.google\\.Chrome",
+                    "^org\\.chromium\\.Chromium",
+                    "^com\\.apple\\.Safari",
+                    "^org\\.mozilla\\.firefox",
+                    "^com\\.brave\\.Browser"
+                  ]}
+                ],
+                "from": { "key_code": "w", "modifiers": { "mandatory": ["option"], "optional": ["any"] } },
+                "to": [{ "key_code": "c", "modifiers": ["left_command"] }]
+              }
+            ]
+          },
+          {
+            "description": "Home-row mods except Moonlander: hold a/;=Cmd, s/l=Shift, d/k=Alt, f/j=Ctrl. Spotlight = hold a + Space.",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ],
+                "from": { "key_code": "a", "modifiers": { "optional": ["any"] } },
+                "to_if_held_down": [{ "key_code": "left_command" }],
+                "to_if_alone": [{ "key_code": "a" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ],
+                "from": { "key_code": "s", "modifiers": { "optional": ["any"] } },
+                "to_if_held_down": [{ "key_code": "left_shift" }],
+                "to_if_alone": [{ "key_code": "s" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ],
+                "from": { "key_code": "d", "modifiers": { "optional": ["any"] } },
+                "to_if_held_down": [{ "key_code": "left_option" }],
+                "to_if_alone": [{ "key_code": "d" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ],
+                "from": { "key_code": "f", "modifiers": { "optional": ["any"] } },
+                "to_if_held_down": [{ "key_code": "left_control" }],
+                "to_if_alone": [{ "key_code": "f" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ],
+                "from": { "key_code": "j", "modifiers": { "optional": ["any"] } },
+                "to_if_held_down": [{ "key_code": "right_control" }],
+                "to_if_alone": [{ "key_code": "j" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ],
+                "from": { "key_code": "k", "modifiers": { "optional": ["any"] } },
+                "to_if_held_down": [{ "key_code": "right_option" }],
+                "to_if_alone": [{ "key_code": "k" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ],
+                "from": { "key_code": "l", "modifiers": { "optional": ["any"] } },
+                "to_if_held_down": [{ "key_code": "right_shift" }],
+                "to_if_alone": [{ "key_code": "l" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ],
+                "from": { "key_code": "semicolon", "modifiers": { "optional": ["any"] } },
+                "to_if_held_down": [{ "key_code": "right_command" }],
+                "to_if_alone": [{ "key_code": "semicolon" }]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
