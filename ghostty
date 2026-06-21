@@ -57,6 +57,7 @@ keybind = ctrl+x>3=new_split:right
 keybind = ctrl+x>0=close_surface
 keybind = ctrl+x>5>2=new_tab
 keybind = ctrl+x>5>0=close_tab:this
+keybind = ctrl+x>5>o=next_tab
 
 # Authentic Solarized Dark – original Ethan Schoonover palette
 
