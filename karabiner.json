@@ -30,26 +30,35 @@
             ]
           },
           {
-            "description": "Right Command + Space does nothing",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": { "key_code": "spacebar", "modifiers": { "mandatory": ["right_command"], "optional": ["any"] } },
-                "to": [{ "key_code": "vk_none" }]
-              }
-            ]
-          },
-          {
             "description": "Right Command alone → Mission Control; with other keys it does nothing",
             "manipulators": [
               {
                 "type": "basic",
                 "from": { "key_code": "right_command", "modifiers": { "optional": ["any"] } },
-                "to": [{ "key_code": "vk_none" }],
+                "to": [
+                  { "set_variable": { "name": "right_command_pending", "value": 1 } },
+                  { "key_code": "vk_none" }
+                ],
                 "to_if_alone": [{ "apple_vendor_keyboard_key_code": "mission_control" }],
+                "to_after_key_up": [
+                  { "set_variable": { "name": "right_command_pending", "value": 0 } }
+                ],
                 "parameters": {
                   "basic.to_if_alone_timeout_milliseconds": 1000
                 }
+              }
+            ]
+          },
+          {
+            "description": "Space does nothing while Right Command is pending",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  { "type": "variable_if", "name": "right_command_pending", "value": 1 }
+                ],
+                "from": { "key_code": "spacebar", "modifiers": { "optional": ["any"] } },
+                "to": [{ "key_code": "vk_none" }]
               }
             ]
           },
