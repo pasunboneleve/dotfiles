@@ -30,6 +30,16 @@
             ]
           },
           {
+            "description": "Right Command + Space does nothing",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": { "key_code": "spacebar", "modifiers": { "mandatory": ["right_command"], "optional": ["any"] } },
+                "to": [{ "key_code": "vk_none" }]
+              }
+            ]
+          },
+          {
             "description": "Right Command alone → Mission Control; with other keys it does nothing",
             "manipulators": [
               {
