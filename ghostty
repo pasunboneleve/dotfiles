@@ -58,6 +58,19 @@ keybind = ctrl+x>0=close_surface
 keybind = ctrl+x>5>2=new_tab
 keybind = ctrl+x>5>0=close_tab:this
 keybind = ctrl+x>5>o=next_tab
+keybind = ctrl+b=csi:D
+keybind = ctrl+f=csi:C
+keybind = ctrl+p=csi:A
+keybind = ctrl+n=csi:B
+keybind = ctrl+a=text:\x01
+keybind = ctrl+e=text:\x05
+keybind = ctrl+d=text:\x04
+keybind = ctrl+k=text:\x0b
+keybind = ctrl+w=text:\x17
+keybind = ctrl+g=text:\x1b
+keybind = alt+b=esc:b
+keybind = alt+f=esc:f
+keybind = ctrl+y=paste_from_clipboard
 
 # Authentic Solarized Dark – original Ethan Schoonover palette
 
