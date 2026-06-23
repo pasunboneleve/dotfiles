@@ -20,6 +20,17 @@
             "manipulators": [
               {
                 "type": "basic",
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ],
                 "from": { "key_code": "left_command", "modifiers": { "optional": ["any"] } },
                 "to": [{ "key_code": "vk_none" }],
                 "to_if_alone": [{ "apple_vendor_keyboard_key_code": "mission_control" }],
@@ -34,6 +45,17 @@
             "manipulators": [
               {
                 "type": "basic",
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ],
                 "from": { "key_code": "right_command", "modifiers": { "optional": ["any"] } },
                 "to": [
                   { "set_variable": { "name": "right_command_pending", "value": 1 } },
@@ -55,7 +77,16 @@
               {
                 "type": "basic",
                 "conditions": [
-                  { "type": "variable_if", "name": "right_command_pending", "value": 1 }
+                  { "type": "variable_if", "name": "right_command_pending", "value": 1 },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
                 ],
                 "from": { "key_code": "spacebar", "modifiers": { "optional": ["any"] } },
                 "to": [{ "key_code": "vk_none" }]
