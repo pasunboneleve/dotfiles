@@ -71,6 +71,7 @@ keybind = ctrl+g=text:\x1b
 keybind = alt+b=esc:b
 keybind = alt+f=esc:f
 keybind = ctrl+y=paste_from_clipboard
+keybind = ctrl+slash=text:\x1f
 
 # Authentic Solarized Dark – original Ethan Schoonover palette
 
