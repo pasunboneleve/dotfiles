@@ -83,10 +83,9 @@
                                     "key_code": "a",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "key_code": "left_command" }],
                                 "to_if_alone": [{ "key_code": "a" }],
-                                "to_if_held_down": [{ "apple_vendor_keyboard_key_code": "mission_control" }],
-                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 300 }
+                                "to_if_held_down": [{ "key_code": "left_command" }],
+                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 250 }
                             },
                             {
                                 "type": "basic",
@@ -255,10 +254,9 @@
                                     "key_code": "semicolon",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "key_code": "left_command" }],
                                 "to_if_alone": [{ "key_code": "semicolon" }],
-                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 300 },
-                                "to_if_held_down": [{ "apple_vendor_keyboard_key_code": "mission_control" }]
+                                "to_if_held_down": [{ "key_code": "left_command" }],
+                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 250 }
                             }
                         ]
                     },
@@ -1612,10 +1610,9 @@
                                     "key_code": "a",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "key_code": "left_command" }],
                                 "to_if_alone": [{ "key_code": "a" }],
-                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 300 },
-                                "to_if_held_down": [{ "apple_vendor_keyboard_key_code": "mission_control" }]
+                                "to_if_held_down": [{ "key_code": "left_command" }],
+                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 250 }
                             },
                             {
                                 "type": "basic",
@@ -1784,10 +1781,9 @@
                                     "key_code": "semicolon",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "key_code": "left_command" }],
                                 "to_if_alone": [{ "key_code": "semicolon" }],
-                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 300 },
-                                "to_if_held_down": [{ "apple_vendor_keyboard_key_code": "mission_control" }]
+                                "to_if_held_down": [{ "key_code": "left_command" }],
+                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 250 }
                             }
                         ]
                     }
