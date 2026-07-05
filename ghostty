@@ -49,6 +49,7 @@
 # resize-overlay-duration = 4s 200ms
 
 font-family = Inconsolata
+font-size = 16
 
 keybind = alt+o=goto_split:next
 keybind = alt+shift+o=goto_split:previous
