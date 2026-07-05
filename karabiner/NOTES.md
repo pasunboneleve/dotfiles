@@ -137,7 +137,8 @@ is an Emacs `C-x` chord and resets the mode:
 | `C-b` / `C-f` | ←  / → | char left / right |
 | `C-p` / `C-n` | ↑ / ↓ | line up / down |
 | `M-b` / `M-f` | Opt-← / Opt-→ | word left / right |
-| `C-a` / `C-e` | Cmd-← / Cmd-→ | line start / end |
+| `C-a` | Cmd-← | line start |
+| `C-e` | native app handling | line end |
 | `M-v` / `C-v` | PageUp / PageDown | scroll |
 | `M-<` (Opt-Shift-,) / `M->` (Opt-Shift-.) | Cmd-↑ / Cmd-↓ | buffer start / end |
 | `C-m` / `C-j` | Return | newline |
