@@ -5,35 +5,43 @@ modmap:
       a:
         held: super_l
         alone: a
-        alone_timeout_millis: 200
+        alone_timeout_millis: 150
+        hold_threshold_millis: 250
       s:
         held: shift_l
         alone: s
-        alone_timeout_millis: 200
+        alone_timeout_millis: 150
+        hold_threshold_millis: 250
       d:
         held: alt_l
         alone: d
-        alone_timeout_millis: 200
+        alone_timeout_millis: 150
+        hold_threshold_millis: 250
       f:
         held: ctrl_l
         alone: f
-        alone_timeout_millis: 200
+        alone_timeout_millis: 150
+        hold_threshold_millis: 250
       j:
         held: ctrl_r
         alone: j
-        alone_timeout_millis: 200
+        alone_timeout_millis: 150
+        hold_threshold_millis: 250
       k:
         held: alt_r
         alone: k
-        alone_timeout_millis: 200
+        alone_timeout_millis: 150
+        hold_threshold_millis: 250
       l:
         held: shift_r
         alone: l
-        alone_timeout_millis: 200
+        alone_timeout_millis: 150
+        hold_threshold_millis: 250
       semicolon:
         held: super_r
         alone: semicolon
-        alone_timeout_millis: 200
+        alone_timeout_millis: 150
+        hold_threshold_millis: 250
 
 keymap:
   - name: Emacs
