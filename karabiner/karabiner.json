@@ -1714,32 +1714,6 @@
                         ]
                     },
                     {
-                        "description": "Right click pastes from clipboard in Ghostty",
-                        "manipulators": [
-                            {
-                                "type": "basic",
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": [
-                                            "^com\\.mitchellh\\.ghostty"
-                                        ]
-                                    }
-                                ],
-                                "from": {
-                                    "pointing_button": "button2",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "v",
-                                        "modifiers": ["left_command"]
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
                         "description": "Home-row mods except Moonlander: hold a/;=Cmd, s/l=Shift, d/k=Alt, f/j=Ctrl. Spotlight = hold a + Space.",
                         "manipulators": [
                             {

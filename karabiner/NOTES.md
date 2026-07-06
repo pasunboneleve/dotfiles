@@ -158,8 +158,9 @@ because `Opt-w` there can clash with site shortcuts.
 
 ---
 
-## 6. Ghostty quality-of-life (rule §11)
-In Ghostty only, **right-click (`button2`) → Cmd-V** (paste from clipboard).
+## 6. Ghostty quality-of-life
+Ghostty copies selected text on selection, and middle-click pastes the
+selection.
 
 ---
 
@@ -174,7 +175,6 @@ In Ghostty only, **right-click (`button2`) → Cmd-V** (paste from clipboard).
 8. Emacs `C-x` subcommands
 9. Emacs single-key bindings (navigation/editing/clipboard/search)
 10. Emacs `M-w` copy → Cmd-C (also excl. browsers)
-11. Ghostty right-click paste
-12. Home-row mods on non-Moonlander keyboards
+11. Home-row mods on non-Moonlander keyboards
 
 (Variables used: `ctrl_x_mode`, `right_command_pending`.)
