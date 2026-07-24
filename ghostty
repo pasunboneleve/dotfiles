@@ -51,6 +51,7 @@
 font-family = Inconsolata
 font-size = 16
 copy-on-select = clipboard
+focus-follows-mouse = true
 
 keybind = alt+o=goto_split:next
 keybind = alt+shift+o=goto_split:previous
